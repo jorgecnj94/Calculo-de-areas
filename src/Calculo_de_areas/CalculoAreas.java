@@ -9,14 +9,13 @@ public class CalculoAreas {
 	//
 	Scanner sc = new Scanner (System.in);
 	
-	private int opcion = 1;
+	int opcion = 1;
 
-	private double base   = 0.0;
-	private double altura = 0.0;
-	private double base2  = 0.0;
+	double base   = 0.0;
+	double altura = 0.0;
+	double base2  = 0.0;
 	
-	private double area   = 0.0;
-	
+	double area   = 0.0;
 	
 	public void menu(){
 		
@@ -47,7 +46,28 @@ public class CalculoAreas {
 				}
 				
 			}
-			
+
+			if(opcion == 2) {
+
+				System.out.println("\n Introduzca los dos lados y la altura del trapecio para calcular su area");
+
+				if(sc.hasNextDouble()) {
+					base = sc.nextDouble();
+					if(sc.hasNextDouble()) {
+						base2 = sc.nextDouble();
+						if(sc.hasNextDouble()) {
+							altura = sc.nextDouble();
+						}
+					}
+				}
+				
+				area = areaTrapecio(base, base2, altura);
+				if(area != 0.0) {
+					System.out.printf("\n El área del trapecio es %.2f", area);
+				}else {
+					System.out.println("\n No se puede calcular el área del trapecio debido a datos de entrada erróneos");
+				}
+			}
 		}
 		
 	}
@@ -56,6 +76,14 @@ public class CalculoAreas {
 		
 		if(b > 0 && a > 0) {
 			return b*a/2.0;
+		}
+		return 0.0;
+	}
+
+	public double areaTrapecio(double b, double b2, double a) {
+
+		if(b > b2  || b < b2) {
+			return a*((b+b2)/2.0);
 		}
 		return 0.0;
 	}
