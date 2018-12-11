@@ -68,6 +68,23 @@ public class CalculoAreas {
 					System.out.println("\n No se puede calcular el área del trapecio debido a datos de entrada erróneos");
 				}
 			}
+			if(opcion == 3) {
+				
+				System.out.println("\n Introduzca la base y la altura del rectángulo para calcular su area");
+				
+				if(sc.hasNextDouble()) {
+					base = sc.nextDouble();
+					if(sc.hasNextDouble()) {
+						altura = sc.nextDouble();
+					}
+				}
+				area = areaRectangulo(base, altura);
+				if(area != 0.0) {
+					System.out.printf("\n El área del rectángulo es %.2f", area);
+				}else {
+					System.out.println("\n No se puede calcular el área del rectángulo debido a datos de entrada erróneos");
+				}
+			}
 		}
 		
 	}
@@ -84,6 +101,13 @@ public class CalculoAreas {
 
 		if(b > b2  || b < b2) {
 			return a*((b+b2)/2.0);
+		}
+		return 0.0;
+	}
+	public double areaRectangulo(double b, double a) {
+
+		if(b >= 2 && b <= 10 && a >= 2 && a <= 10) {
+			return b*a;
 		}
 		return 0.0;
 	}
