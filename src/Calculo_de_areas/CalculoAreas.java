@@ -7,17 +7,18 @@ import java.util.Scanner;
 
 public class CalculoAreas {
 	//
-	Scanner sc = new Scanner (System.in);
 	
-	int opcion = 1;
+	
+	public static void menu(){
+		Scanner sc = new Scanner (System.in);
+		
+		int opcion = 1;
 
-	double base   = 0.0;
-	double altura = 0.0;
-	double base2  = 0.0;
-	
-	double area   = 0.0;
-	
-	public void menu(){
+		double base   = 0.0;
+		double altura = 0.0;
+		double base2  = 0.0;
+		
+		double area   = 0.0;
 		
 		System.out.println (" \t\t Cálculo de áreas\n________________________________\n ");
 		System.out.println ("1. Calcular el área de un triángulo\n2. Calcular el área de un trapecio");
@@ -85,11 +86,13 @@ public class CalculoAreas {
 					System.out.println("\n No se puede calcular el área del rectángulo debido a datos de entrada erróneos");
 				}
 			}
+			
+			opcion = Integer.parseInt(cadena);
 		}
 		
 	}
 	
-	public double areaTriangulo(double b, double a) {
+	public static double areaTriangulo(double b, double a) {
 		
 		if(b > 0 && a > 0) {
 			return b*a/2.0;
@@ -97,14 +100,14 @@ public class CalculoAreas {
 		return 0.0;
 	}
 
-	public double areaTrapecio(double b, double b2, double a) {
+	public static double areaTrapecio(double b, double b2, double a) {
 
 		if(b > b2  || b < b2) {
 			return a*((b+b2)/2.0);
 		}
 		return 0.0;
 	}
-	public double areaRectangulo(double b, double a) {
+	public static double areaRectangulo(double b, double a) {
 
 		if(b >= 2 && b <= 10 && a >= 2 && a <= 10) {
 			return b*a;
